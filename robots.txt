@@ -2,5 +2,13 @@
 User-agent: *
 Allow: /
 
+# Legal pages (noindex)
+Disallow: /impressum.html
+Disallow: /datenschutz.html
+Disallow: /agb.html
+Disallow: /en/legal-notice.html
+Disallow: /en/privacy-policy.html
+Disallow: /en/terms.html
+
 # Sitemap
 Sitemap: https://smartflow.bayern/sitemap.xml

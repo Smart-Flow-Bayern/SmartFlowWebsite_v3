@@ -1,6 +1,15 @@
 /* SmartFlow v3 — Main JavaScript */
 
+/* Theme: apply saved preference before paint to avoid flash */
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initMobileMenu();
   initSmoothScroll();
   initActiveNavHighlight();
@@ -20,14 +29,18 @@ function initMobileMenu() {
   const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
 
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
+    const isOpen = hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
   });
 
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
     });
   });
 }
@@ -134,4 +147,25 @@ function initScrollAnimations() {
   });
 
   elements.forEach(el => observer.observe(el));
+}
+
+/* =====================================================
+   Theme Toggle
+   ===================================================== */
+function initThemeToggle() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+
+    if (next === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.removeItem('theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
 }
