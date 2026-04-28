@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavHighlight();
   initHeaderHideShow();
   initScrollAnimations();
+  initStickyCta();
 });
 
 /* =====================================================
@@ -168,4 +169,35 @@ function initThemeToggle() {
       localStorage.setItem('theme', next);
     }
   });
+}
+
+/* =====================================================
+   Sticky CTA Visibility
+   ===================================================== */
+function initStickyCta() {
+  const cta = document.getElementById('sticky-cta');
+  const hero = document.getElementById('hero');
+  const contact = document.getElementById('contact');
+  if (!cta || !hero || !contact) return;
+
+  let pastHero = false;
+  let inContact = false;
+
+  const update = () => {
+    const shouldShow = pastHero && !inContact;
+    cta.classList.toggle('visible', shouldShow);
+  };
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { pastHero = !entry.isIntersecting; });
+    update();
+  }, { threshold: 0 });
+
+  const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { inContact = entry.isIntersecting; });
+    update();
+  }, { threshold: 0.1 });
+
+  heroObserver.observe(hero);
+  contactObserver.observe(contact);
 }

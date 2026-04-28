@@ -1454,3 +1454,41 @@ ol {
     width: 100%;
   }
 }
+
+/* =====================================================
+   13. Sticky Mobile CTA
+   ===================================================== */
+
+.sticky-cta {
+  position: fixed;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  z-index: calc(var(--z-sticky) - 1);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-cta-bg);
+  color: var(--btn-cta-color);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+  padding: 14px 22px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.sticky-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: inline-flex;
+  }
+}
