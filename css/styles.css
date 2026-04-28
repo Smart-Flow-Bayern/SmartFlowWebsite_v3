@@ -1034,7 +1034,7 @@ ol {
 .footer-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 .footer-address {
@@ -1048,6 +1048,7 @@ ol {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   transition: color var(--transition-fast);
+  padding: 4px 0;
 }
 
 .footer-link:hover {
