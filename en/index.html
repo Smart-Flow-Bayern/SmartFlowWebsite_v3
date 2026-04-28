@@ -43,28 +43,54 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../css/styles.min.css" />
 
-  <!-- Structured Data: ProfessionalService -->
+  <!-- Structured Data: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "LocalBusiness",
+    "@id": "https://smartflow.bayern/#organization",
     "name": "SmartFlow",
+    "alternateName": "SmartFlow Process Consulting",
+    "founder": {
+      "@type": "Person",
+      "name": "Leon Heinrich",
+      "jobTitle": "Founder"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Arnulfsplatz 2",
       "postalCode": "93047",
       "addressLocality": "Regensburg",
+      "addressRegion": "BY",
       "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.0169,
+      "longitude": 12.0952
     },
     "email": "info@smartflow.bayern",
     "telephone": "+49 173 4487550",
     "url": "https://smartflow.bayern/",
     "image": "https://smartflow.bayern/assets/og-image.jpg",
-    "description": "Process optimization, digitalization, and automation for SMEs in Regensburg and Bavaria.",
-    "areaServed": {
-      "@type": "State",
-      "name": "Bayern"
-    },
+    "logo": "https://smartflow.bayern/favicon.svg",
+    "priceRange": "€€",
+    "description": "Process optimization, digitization, and automation for SMEs in Regensburg and Bavaria.",
+    "areaServed": [
+      { "@type": "City", "name": "Regensburg" },
+      { "@type": "City", "name": "Landshut" },
+      { "@type": "City", "name": "Straubing" },
+      { "@type": "City", "name": "Passau" },
+      { "@type": "State", "name": "Bayern" }
+    ],
+    "knowsAbout": [
+      "Process Optimization",
+      "Digitization",
+      "Workflow Automation",
+      "AI Integration for SMEs",
+      "Cloud Migration",
+      "Software Selection"
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

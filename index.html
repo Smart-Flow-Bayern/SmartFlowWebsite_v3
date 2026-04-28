@@ -43,28 +43,54 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.min.css" />
 
-  <!-- Structured Data: ProfessionalService -->
+  <!-- Structured Data: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "LocalBusiness",
+    "@id": "https://smartflow.bayern/#organization",
     "name": "SmartFlow",
+    "alternateName": "SmartFlow Prozessoptimierung",
+    "founder": {
+      "@type": "Person",
+      "name": "Leon Heinrich",
+      "jobTitle": "Inhaber"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Arnulfsplatz 2",
       "postalCode": "93047",
       "addressLocality": "Regensburg",
+      "addressRegion": "BY",
       "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.0169,
+      "longitude": 12.0952
     },
     "email": "info@smartflow.bayern",
     "telephone": "+49 173 4487550",
     "url": "https://smartflow.bayern/",
     "image": "https://smartflow.bayern/assets/og-image.jpg",
+    "logo": "https://smartflow.bayern/favicon.svg",
+    "priceRange": "€€",
     "description": "Prozessoptimierung, Digitalisierung und Automatisierung für KMU in Regensburg und Bayern.",
-    "areaServed": {
-      "@type": "State",
-      "name": "Bayern"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Regensburg" },
+      { "@type": "City", "name": "Landshut" },
+      { "@type": "City", "name": "Straubing" },
+      { "@type": "City", "name": "Passau" },
+      { "@type": "State", "name": "Bayern" }
+    ],
+    "knowsAbout": [
+      "Prozessoptimierung",
+      "Digitalisierung",
+      "Workflow-Automatisierung",
+      "KI-Integration für KMU",
+      "Cloud-Migration",
+      "Software-Auswahl"
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
