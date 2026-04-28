@@ -131,7 +131,7 @@
        ================================================ -->
   <header class="header" id="header">
     <nav class="nav">
-      <a href="#" class="logo-text">Smart<span class="accent">Flow</span></a>
+      <a href="/en/" class="logo-text" aria-label="SmartFlow Home">Smart<span class="accent">Flow</span></a>
 
       <div class="nav-links">
         <a href="#services" class="nav-link">Services</a>
@@ -449,55 +449,84 @@
           Free. No obligation. In 30 minutes you'll know if we can help.
         </p>
 
-        <!-- Cal.com inline embed -->
-        <div class="cal-embed-wrapper fade-in" id="cal-embed"></div>
+        <!-- Cal.com inline embed (Click-to-Load: GDPR-compliant, no third party without consent) -->
+        <div class="cal-embed-wrapper fade-in" id="cal-embed">
+          <div class="cal-placeholder" id="cal-placeholder">
+            <div class="cal-placeholder-content">
+              <h3 class="cal-placeholder-title">Pick a time online</h3>
+              <p class="cal-placeholder-text">
+                We use <strong>Cal.com</strong> for online appointment booking. Loading the
+                booking widget may set cookies and transfer personal data to the USA. See our
+                <a href="privacy-policy.html">Privacy Policy</a> for details.
+              </p>
+              <button type="button" class="btn-cta" id="cal-load-btn" aria-controls="cal-embed">
+                Load booking calendar &rarr;
+              </button>
+              <p class="cal-placeholder-alt">
+                Or directly:
+                <a href="mailto:info@smartflow.bayern">info@smartflow.bayern</a>
+                &nbsp;·&nbsp;
+                <a href="tel:+491734487550">+49 173 4487550</a>
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <!-- Cal.com embed script -->
+        <!-- Cal.com loader: only loads after user click -->
         <script type="text/javascript">
-          (function (C, A, L) {
-            let p = function (a, ar) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-              let cal = C.Cal;
-              let ar = arguments;
-              if (!cal.loaded) {
-                cal.ns = {};
-                cal.q = cal.q || [];
-                d.head.appendChild(d.createElement("script")).src = A;
-                cal.loaded = true;
-              }
-              if (ar[0] === L) {
-                const api = function () { p(api, arguments); };
-                const namespace = ar[1];
-                api.q = api.q || [];
-                if (typeof namespace === "string") {
-                  cal.ns[namespace] = cal.ns[namespace] || api;
-                  p(cal.ns[namespace], ar);
-                  p(cal, ["-", namespace, api]);
-                } else {
-                  p(cal, ar);
-                }
-                return;
-              }
-              p(cal, ar);
-            };
-          })(window, "https://app.cal.com/embed/embed.js", "init");
+          (function () {
+            var btn = document.getElementById('cal-load-btn');
+            var placeholder = document.getElementById('cal-placeholder');
+            if (!btn) return;
 
-          var calTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-          Cal("init", "smartflow-consultation", { origin: "https://cal.com" });
-          Cal.ns["smartflow-consultation"]("inline", {
-            elementOrSelector: "#cal-embed",
-            calLink: "leon-heinrich-3novbk/30min",
-            layout: "month_view",
-            config: {
-              theme: calTheme,
-              brandColor: "#00D9FF"
+            function loadCal() {
+              if (placeholder && placeholder.parentNode) {
+                placeholder.parentNode.removeChild(placeholder);
+              }
+              (function (C, A, L) {
+                var p = function (a, ar) { a.q.push(ar); };
+                var d = C.document;
+                C.Cal = C.Cal || function () {
+                  var cal = C.Cal;
+                  var ar = arguments;
+                  if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement('script')).src = A;
+                    cal.loaded = true;
+                  }
+                  if (ar[0] === L) {
+                    var api = function () { p(api, arguments); };
+                    var namespace = ar[1];
+                    api.q = api.q || [];
+                    if (typeof namespace === 'string') {
+                      cal.ns[namespace] = cal.ns[namespace] || api;
+                      p(cal.ns[namespace], ar);
+                      p(cal, ['-', namespace, api]);
+                    } else {
+                      p(cal, ar);
+                    }
+                    return;
+                  }
+                  p(cal, ar);
+                };
+              })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+              var calTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+              Cal('init', 'smartflow-consultation', { origin: 'https://cal.com' });
+              Cal.ns['smartflow-consultation']('inline', {
+                elementOrSelector: '#cal-embed',
+                calLink: 'leon-heinrich-3novbk/30min',
+                layout: 'month_view',
+                config: {
+                  theme: calTheme,
+                  brandColor: '#00D9FF'
+                }
+              });
             }
-          });
-          Cal.ns["smartflow-consultation"]("ui", {
-            theme: calTheme,
-            hideEventTypeDetails: false
-          });
+
+            btn.addEventListener('click', loadCal, { once: true });
+          })();
         </script>
 
         <!-- Fallback contact -->

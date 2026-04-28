@@ -878,6 +878,63 @@ ol {
   margin: 0 auto;
 }
 
+/* Cal.com Click-to-Load Placeholder */
+.cal-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 500px;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.cal-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: 480px;
+  text-align: center;
+}
+
+.cal-placeholder-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.cal-placeholder-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.cal-placeholder-text a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cal-placeholder-text a:hover {
+  opacity: 0.75;
+}
+
+.cal-placeholder-alt {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+.cal-placeholder-alt a {
+  color: var(--color-accent);
+  transition: opacity var(--transition-fast);
+}
+
+.cal-placeholder-alt a:hover {
+  opacity: 0.75;
+}
+
 .contact-fallback {
   display: flex;
   align-items: center;
