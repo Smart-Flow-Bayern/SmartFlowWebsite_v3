@@ -100,6 +100,60 @@
   }
   </script>
 
+  <!-- Structured Data: Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://smartflow.bayern/#service-prozessoptimierung",
+        "serviceType": "Prozessoptimierung",
+        "name": "Prozessoptimierung",
+        "provider": { "@id": "https://smartflow.bayern/#organization" },
+        "areaServed": { "@type": "State", "name": "Bayern" },
+        "description": "Wir analysieren Ihre bestehenden Abläufe, identifizieren Engpässe und gestalten Ihre Workflows neu — für mehr Effizienz und weniger verschwendete Zeit.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Kostenfreies Erstgespräch (30 Minuten)"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://smartflow.bayern/#service-digitalisierung",
+        "serviceType": "Digitalisierung",
+        "name": "Digitalisierung",
+        "provider": { "@id": "https://smartflow.bayern/#organization" },
+        "areaServed": { "@type": "State", "name": "Bayern" },
+        "description": "Von der passenden Software bis zur vollständigen Cloud-Migration: Wir begleiten Sie auf dem Weg in die digitale Welt — pragmatisch, sicher und nachhaltig.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Kostenfreies Erstgespräch (30 Minuten)"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://smartflow.bayern/#service-automatisierung",
+        "serviceType": "Workflow-Automatisierung",
+        "name": "Automatisierung",
+        "provider": { "@id": "https://smartflow.bayern/#organization" },
+        "areaServed": { "@type": "State", "name": "Bayern" },
+        "description": "Wir automatisieren wiederkehrende Aufgaben, integrieren Systeme und nutzen KI, damit Ihr Team sich auf das Wesentliche konzentrieren kann.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Kostenfreies Erstgespräch (30 Minuten)"
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Structured Data: FAQPage -->
   <script type="application/ld+json">
   {
