@@ -379,7 +379,7 @@ ol {
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--color-text-muted);
-  max-width: 500px;
+  max-width: 620px;
   text-align: center;
   line-height: 1.6;
 }
@@ -391,6 +391,29 @@ ol {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: var(--space-xs);
+}
+
+.hero-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-trust {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+.hero-trust-stars {
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-right: var(--space-xs);
 }
 
 .btn-cta {
