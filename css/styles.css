@@ -983,17 +983,25 @@ ol {
 
 .footer {
   border-top: 1px solid var(--color-border);
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-2xl) var(--space-lg) var(--space-lg);
 }
 
-.footer-inner {
+.footer-grid {
   max-width: var(--container-max);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  gap: var(--space-xl);
+}
+
+.footer-col {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-col-brand {
+  gap: var(--space-xs);
 }
 
 .footer-logo {
@@ -1007,11 +1015,33 @@ ol {
   color: var(--color-accent);
 }
 
-.footer-links {
+.footer-tagline {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.footer-heading {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.footer-list {
   display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-address {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-style: normal;
+  line-height: 1.7;
 }
 
 .footer-link {
@@ -1025,24 +1055,25 @@ ol {
 }
 
 .footer-copy {
+  max-width: var(--container-max);
+  margin: var(--space-xl) auto 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  width: 100%;
   text-align: center;
-  margin-top: var(--space-sm);
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--color-border);
 }
 
-@media (max-width: 640px) {
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-md);
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
   }
+}
 
-  .footer-links {
-    gap: var(--space-md);
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }
 
