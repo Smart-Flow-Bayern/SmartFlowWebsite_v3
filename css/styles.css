@@ -400,6 +400,7 @@ ol {
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-xs);
+  max-width: 100%;
 }
 
 .hero-trust {
