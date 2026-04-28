@@ -1399,3 +1399,58 @@ ol {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================================================
+   12. CTA Banner
+   ===================================================== */
+
+.cta-banner {
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cta-banner-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.cta-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.cta-banner-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cta-banner-sub {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.cta-banner-alt {
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .cta-banner-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .cta-banner-inner .btn-cta {
+    width: 100%;
+  }
+}
