@@ -430,7 +430,21 @@ ol {
 .hero-subtitle,
 .hero-trust { text-align: left; }
 
-.hero-actions { justify-content: flex-start; }
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: var(--space-xs);
+}
 
 .hero-visual {
   display: flex;
@@ -486,9 +500,10 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flow-animate .flow-path,
-  .flow-animate .flow-node,
-  .flow-animate .flow-chip { animation: none; }
+  .flow-path { stroke-dashoffset: 0; }
+  .flow-node,
+  .flow-chip { opacity: 1; }
+  .flow-chip { stroke: var(--color-text-muted); stroke-width: 1.5; }
 }
 
 .hero-title {
