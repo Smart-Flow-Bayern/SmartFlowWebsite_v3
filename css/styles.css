@@ -11,22 +11,39 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../assets/fonts/clashdisplay.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../assets/fonts/jetbrainsmono.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* =====================================================
    1. Design Tokens & Reset
    ===================================================== */
 
 :root {
-  --color-bg: #ffffff;
-  --color-bg-alt: #f5f5f5;
-  --color-surface: #eeeeee;
-  --color-text: #111111;
-  --color-text-secondary: #555555;
-  --color-text-muted: #888888;
-  --color-accent: #0099bb;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-bg: #F6F7F9;
+  --color-bg-alt: #EDEFF3;
+  --color-surface: #FFFFFF;
+  --color-text: #0C1116;
+  --color-text-secondary: #41505F;
+  --color-text-muted: #6B7A8A;
+  --color-accent: #1B4DFF;
+  --color-accent-soft: #36D2E0;
+  --color-border: rgba(12, 17, 22, 0.10);
 
+  --font-display: 'Clash Display', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -58,27 +75,28 @@
   /* Theme toggle button */
   --header-bg: rgba(255, 255, 255, 0.85);
   --mobile-menu-bg: #f0f0f0;
-  --btn-cta-bg: #111111;
+  --btn-cta-bg: #0C1116;
   --btn-cta-color: #ffffff;
-  --process-number-color: rgba(0, 0, 0, 0.16);
+  --process-number-color: rgba(12, 17, 22, 0.14);
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-bg: #000000;
-  --color-bg-alt: #111111;
-  --color-surface: #1a1a1a;
-  --color-text: #ffffff;
-  --color-text-secondary: #999999;
-  --color-text-muted: #666666;
-  --color-accent: #00D9FF;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-bg: #0C1116;
+  --color-bg-alt: #131A22;
+  --color-surface: #1A232E;
+  --color-text: #F6F7F9;
+  --color-text-secondary: #A7B4C2;
+  --color-text-muted: #6B7A8A;
+  --color-accent: #5B7BFF;
+  --color-accent-soft: #36D2E0;
+  --color-border: rgba(255, 255, 255, 0.12);
 
-  --header-bg: rgba(0, 0, 0, 0.85);
-  --mobile-menu-bg: #0a0a0a;
-  --btn-cta-bg: #ffffff;
-  --btn-cta-color: #000000;
-  --process-number-color: rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(12, 17, 22, 0.85);
+  --mobile-menu-bg: #0F151C;
+  --btn-cta-bg: #F6F7F9;
+  --btn-cta-color: #0C1116;
+  --process-number-color: rgba(255, 255, 255, 0.10);
 }
 
 *,
@@ -103,6 +121,47 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+}
+
+/* Typo-Rollen: Display für Headlines, Mono für Daten/Labels */
+.hero-title,
+.section-title,
+.service-title,
+.results-title,
+.contact-title,
+.cta-banner-title,
+.case-study-title,
+.process-title,
+.cal-placeholder-title,
+.legal-page h1,
+.legal-page h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.hero-eyebrow,
+.section-label,
+.results-label,
+.contact-label,
+.case-study-industry,
+.footer-heading,
+.metric-number,
+.case-study-metric,
+.process-number,
+.service-number,
+.testimonial-role {
+  font-family: var(--font-mono);
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Mono braucht weniger Letterspacing als die alten Sans-Labels */
+.hero-eyebrow,
+.section-label,
+.results-label,
+.contact-label,
+.case-study-industry,
+.footer-heading {
+  letter-spacing: 0.08em;
 }
 
 img,
