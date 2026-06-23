@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderHideShow();
   initScrollAnimations();
   initStickyCta();
+  initFlowLine();
 });
 
 /* =====================================================
@@ -200,4 +201,18 @@ function initStickyCta() {
 
   heroObserver.observe(hero);
   contactObserver.observe(contact);
+}
+
+/* =====================================================
+   Flow-Line Signature Animation
+   ===================================================== */
+function initFlowLine() {
+  const svg = document.querySelector('.flow-svg');
+  if (!svg) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    svg.classList.add('flow-static');
+    return;
+  }
+  requestAnimationFrame(() => svg.classList.add('flow-animate'));
 }
