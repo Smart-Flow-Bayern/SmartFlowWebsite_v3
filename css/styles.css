@@ -544,7 +544,7 @@ summary:focus-visible {
 
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; gap: var(--space-xl); }
-  .hero-visual { order: -1; justify-content: flex-start; }
+  .hero-visual { order: 1; justify-content: flex-start; }
   .flow-svg { width: 100%; max-width: 300px; }
 }
 
