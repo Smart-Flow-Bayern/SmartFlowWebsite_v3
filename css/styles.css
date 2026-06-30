@@ -58,7 +58,7 @@
   --space-2xl: 5rem;
   --space-3xl: 8rem;
 
-  --section-gap: clamp(120px, 15vh, 200px);
+  --section-gap: clamp(72px, 9vh, 120px);
   --container-max: 1000px;
   --header-height: 72px;
 
