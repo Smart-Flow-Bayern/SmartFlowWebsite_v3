@@ -280,6 +280,27 @@ summary:focus-visible {
   color: var(--color-text);
 }
 
+/* Booking-CTA in der Nav */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-cta:hover {
+  background: color-mix(in srgb, var(--color-accent) 85%, #000);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 /* Language Toggle */
 .lang-toggle {
   display: flex;
@@ -414,6 +435,13 @@ summary:focus-visible {
 .mobile-menu .lang-toggle {
   margin-left: 0;
   margin-top: var(--space-xs);
+}
+
+.mobile-menu .nav-cta {
+  justify-content: center;
+  margin-top: var(--space-sm);
+  padding: 12px 20px;
+  border-bottom: none;
 }
 
 @media (max-width: 768px) {
