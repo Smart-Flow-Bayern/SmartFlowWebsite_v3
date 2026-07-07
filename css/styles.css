@@ -897,6 +897,12 @@ summary:focus-visible {
   flex-shrink: 0;
 }
 
+.contact-flow {
+  max-width: 560px;
+  margin: 0 auto var(--space-xl);
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .tile-grid {
     grid-template-columns: 1fr;
