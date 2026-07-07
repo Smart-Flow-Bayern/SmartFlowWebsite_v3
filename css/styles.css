@@ -625,12 +625,6 @@ summary:focus-visible {
   margin-top: var(--space-sm);
 }
 
-.hero-trust-stars {
-  color: var(--color-accent);
-  letter-spacing: 0.1em;
-  margin-right: var(--space-xs);
-}
-
 .btn-cta {
   display: inline-flex;
   align-items: center;
