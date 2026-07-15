@@ -222,6 +222,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- ================================================
        HEADER / NAVIGATION
        ================================================ -->
@@ -268,7 +270,7 @@
     </div>
   </div>
 
-  <main>
+  <main id="main">
 
     <!-- ================================================
          SECTION 1 — HERO
@@ -284,17 +286,18 @@
           </h1>
           <p class="hero-subtitle">
             We digitalize and automate the workflows of trade businesses, medical
-            practices, property managers and SMEs in Bavaria — from the first customer
-            inquiry to the final invoice. And we keep it pragmatic: where your existing
-            systems are good enough, we won't push new software on you.
+            practices, property managers and SMEs in Bavaria — from the first
+            inquiry to the final invoice.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="btn-cta">Book a free consultation &rarr;</a>
+            <a href="#contact" class="btn-cta">Book a free consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
             <a href="#process" class="btn-secondary">How we work</a>
           </div>
-          <p class="hero-trust">
-            Based in Regensburg · Reply within 24 h · 30 minutes, free &amp; non-binding
-          </p>
+          <ul class="hero-trust" role="list">
+            <li>Based in Regensburg</li>
+            <li>Reply within 24 h</li>
+            <li>30 minutes, free &amp; non-binding</li>
+          </ul>
         </div>
 
         <div class="hero-visual fade-in" aria-hidden="true">
@@ -349,7 +352,6 @@
     <section class="pains-section" id="pains">
       <div class="pains-container">
         <div class="fade-in">
-          <p class="section-label">Everyday reality</p>
           <h2 class="section-title">Sound familiar?</h2>
         </div>
 
@@ -488,7 +490,7 @@
           <h2 class="cta-banner-title">In 30 minutes you'll know where your biggest time sink is.</h2>
           <p class="cta-banner-sub">Free consultation — personal, non-binding, from Regensburg.</p>
         </div>
-        <a href="#contact" class="btn-cta">Book a free consultation &rarr;</a>
+        <a href="#contact" class="btn-cta">Book a free consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </aside>
 
@@ -498,7 +500,6 @@
     <section class="audiences-section" id="audiences">
       <div class="audiences-container">
         <div class="fade-in">
-          <p class="section-label">Who it's for</p>
           <h2 class="section-title">For businesses that don't want to spend their time on admin</h2>
         </div>
 
@@ -553,7 +554,6 @@
       <div class="process-container">
 
         <div class="process-header fade-in">
-          <p class="section-label">Our Approach</p>
           <h2 class="section-title">How We Work</h2>
         </div>
 
@@ -627,7 +627,7 @@
               <li>Experience across property management, healthcare, and trades</li>
               <li>One dedicated contact — from the first conversation to go-live</li>
             </ul>
-            <a href="#contact" class="btn-secondary about-cta">Let's talk &rarr;</a>
+            <a href="#contact" class="btn-secondary about-cta">Let's talk <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -640,7 +640,7 @@
           <h2 class="cta-banner-title">&ldquo;I don't have time for this right now.&rdquo;</h2>
           <p class="cta-banner-sub">Understandable — that's exactly why the consultation takes just 30 minutes. We handle the implementation while your day-to-day business keeps running.</p>
         </div>
-        <a href="#contact" class="btn-cta">Book a free consultation &rarr;</a>
+        <a href="#contact" class="btn-cta">Book a free consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </aside>
 
@@ -651,8 +651,7 @@
       <div class="faq-container">
 
         <div class="faq-header fade-in">
-          <p class="section-label">Common Questions</p>
-          <h2 class="section-title">FAQ</h2>
+          <h2 class="section-title">Common questions</h2>
         </div>
 
         <div class="faq-list">
@@ -737,7 +736,6 @@
     <section class="contact-section" id="contact">
       <div class="contact-container">
 
-        <p class="contact-label fade-in">Free &amp; non-binding</p>
         <h2 class="contact-title fade-in">Book a free consultation</h2>
         <p class="contact-subtitle fade-in">
           30 minutes, by phone or video. You describe your workflows, you get
@@ -761,7 +759,7 @@
                 <a href="privacy-policy.html">Privacy Policy</a> for details.
               </p>
               <button type="button" class="btn-cta" id="cal-load-btn" aria-controls="cal-embed">
-                Load booking calendar &rarr;
+                Load booking calendar <span class="btn-arrow" aria-hidden="true">&rarr;</span>
               </button>
               <p class="cal-placeholder-alt">
                 Or directly:
