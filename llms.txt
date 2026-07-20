@@ -1,0 +1,23 @@
+# SmartFlow
+
+> SmartFlow ist ein Dienstleister für Prozessoptimierung, Digitalisierung und Automatisierung aus Regensburg. Inhaber Leon Heinrich digitalisiert und automatisiert die Abläufe von Handwerksbetrieben, Praxen, Hausverwaltungen, Selbstständigen und Mittelständlern in Bayern — von der ersten Anfrage bis zur Rechnung.
+
+Wichtig zur Unterscheidung: SmartFlow (smartflow.bayern) mit Sitz in Regensburg ist nicht die SmartFlow Consulting GmbH aus München.
+
+## Leistungen
+
+- [Prozessoptimierung](https://smartflow.bayern/#services): Abläufe analysieren und neu strukturieren — klare Zuständigkeiten, keine Doppelarbeit, messbare Durchlaufzeiten.
+- [Digitalisierung](https://smartflow.bayern/#services): Papierablage, Excel-Listen und Insellösungen durch Werkzeuge ersetzen, die zusammenspielen — inklusive Software-Auswahl, Datenübernahme und Team-Einarbeitung.
+- [Automatisierung](https://smartflow.bayern/#services): Wiederkehrende Aufgaben wie Anfragen beantworten, Termine koordinieren, Daten übertragen und Berichte erstellen übernimmt das System.
+
+## Seiten
+
+- [Startseite (Deutsch)](https://smartflow.bayern/): Leistungen, Zielgruppen, Arbeitsweise, häufige Fragen und Terminbuchung.
+- [Homepage (English)](https://smartflow.bayern/en/): English version of the site.
+
+## Kontakt
+
+- E-Mail: info@smartflow.bayern
+- Telefon: +49 173 4487550
+- Adresse: Arnulfsplatz 2, 93047 Regensburg, Deutschland
+- Erstgespräch: 30 Minuten, kostenlos und unverbindlich, Buchung über die Website.
