@@ -1,4 +1,4 @@
-/* SmartFlow v3 — Main JavaScript */
+/* SmartFlow v3 - Main JavaScript */
 
 /* Theme: apply saved preference before paint to avoid flash */
 (function() {
@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderHideShow();
   initScrollAnimations();
   initStickyCta();
-  initFlowLine();
-  initCountUp();
+  initTimeline();
 });
 
 /* =====================================================
@@ -29,7 +28,7 @@ function initMobileMenu() {
 
   if (!hamburger || !mobileMenu) return;
 
-  const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
+  const mobileLinks = mobileMenu.querySelectorAll('.nav-link, .nav-cta');
 
   hamburger.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('open');
@@ -205,43 +204,26 @@ function initStickyCta() {
 }
 
 /* =====================================================
-   Flow-Line Signature Animation
+   Prozess-Timeline: Linie zeichnet sich beim Erscheinen
    ===================================================== */
-function initFlowLine() {
-  const svg = document.querySelector('.flow-svg');
-  if (!svg) return;
+function initTimeline() {
+  const timeline = document.getElementById('timeline');
+  if (!timeline) return;
+
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) {
-    svg.classList.add('flow-static');
+    timeline.classList.add('is-active');
     return;
   }
-  requestAnimationFrame(() => svg.classList.add('flow-animate'));
-}
 
-/* =====================================================
-   Count-up for Result Metrics
-   ===================================================== */
-function initCountUp() {
-  const nums = document.querySelectorAll('[data-count]');
-  if (!nums.length) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseFloat(el.dataset.count);
-      obs.unobserve(el);
-      if (reduce) { el.textContent = String(target); return; }
-      const duration = 1200;
-      const start = performance.now();
-      function tick(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = String(Math.round(target * eased));
-        if (p < 1) requestAnimationFrame(tick);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        timeline.classList.add('is-active');
+        observer.disconnect();
       }
-      requestAnimationFrame(tick);
     });
-  }, { threshold: 0.5 });
-  nums.forEach((n) => obs.observe(n));
+  }, { threshold: 0.25 });
+
+  observer.observe(timeline);
 }
