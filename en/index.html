@@ -43,60 +43,95 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../css/styles.min.css" />
 
-  <!-- Structured Data: LocalBusiness -->
+  <!-- Structured Data: LocalBusiness, Person, WebSite, WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://smartflow.bayern/#organization",
-    "name": "SmartFlow",
-    "alternateName": "SmartFlow Process Consulting",
-    "founder": {
-      "@type": "Person",
-      "name": "Leon Heinrich",
-      "jobTitle": "Founder"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Arnulfsplatz 2",
-      "postalCode": "93047",
-      "addressLocality": "Regensburg",
-      "addressRegion": "BY",
-      "addressCountry": "DE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 49.0169,
-      "longitude": 12.0952
-    },
-    "email": "info@smartflow.bayern",
-    "telephone": "+49 173 4487550",
-    "url": "https://smartflow.bayern/",
-    "image": "https://smartflow.bayern/assets/og-image.jpg",
-    "logo": "https://smartflow.bayern/favicon.svg",
-    "priceRange": "€€",
-    "description": "Process optimization, digitization, and automation for SMEs in Regensburg and Bavaria.",
-    "areaServed": [
-      { "@type": "City", "name": "Regensburg" },
-      { "@type": "City", "name": "Landshut" },
-      { "@type": "City", "name": "Straubing" },
-      { "@type": "City", "name": "Passau" },
-      { "@type": "State", "name": "Bayern" }
-    ],
-    "knowsAbout": [
-      "Process Optimization",
-      "Digitization",
-      "Workflow Automation",
-      "AI Integration for SMEs",
-      "Cloud Migration",
-      "Software Selection"
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://smartflow.bayern/#organization",
+        "name": "SmartFlow",
+        "alternateName": "SmartFlow Regensburg",
+        "founder": { "@id": "https://smartflow.bayern/#leon-heinrich" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Arnulfsplatz 2",
+          "postalCode": "93047",
+          "addressLocality": "Regensburg",
+          "addressRegion": "BY",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 49.0169,
+          "longitude": 12.0952
+        },
+        "email": "info@smartflow.bayern",
+        "telephone": "+49 173 4487550",
+        "url": "https://smartflow.bayern/",
+        "image": "https://smartflow.bayern/assets/og-image.jpg",
+        "logo": "https://smartflow.bayern/assets/logo.png",
+        "priceRange": "€€",
+        "description": "Process optimization, digitization, and automation for SMEs in Regensburg and Bavaria.",
+        "areaServed": [
+          { "@type": "City", "name": "Regensburg" },
+          { "@type": "City", "name": "Landshut" },
+          { "@type": "City", "name": "Straubing" },
+          { "@type": "City", "name": "Passau" },
+          { "@type": "State", "name": "Bavaria" }
+        ],
+        "knowsAbout": [
+          "Process Optimization",
+          "Digitization",
+          "Workflow Automation",
+          "AI Integration for SMEs",
+          "Cloud Migration",
+          "Software Selection"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://smartflow.bayern/#leon-heinrich",
+        "name": "Leon Heinrich",
+        "jobTitle": "Owner",
+        "worksFor": { "@id": "https://smartflow.bayern/#organization" },
+        "description": "Trained medical assistant with roles in a general practice, a children's hospital, a pediatric practice, and child and adolescent psychiatry. Today he optimizes, digitizes and automates the processes of SMEs in Bavaria as the owner of SmartFlow.",
+        "knowsAbout": [
+          "Process Optimization",
+          "Workflow Automation",
+          "Databases",
+          "AI Integration for SMEs"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://smartflow.bayern/#website",
+        "url": "https://smartflow.bayern/",
+        "name": "SmartFlow",
+        "publisher": { "@id": "https://smartflow.bayern/#organization" },
+        "inLanguage": ["de", "en"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://smartflow.bayern/en/#webpage",
+        "url": "https://smartflow.bayern/en/",
+        "name": "SmartFlow Regensburg | Process Optimization & Digitization",
+        "isPartOf": { "@id": "https://smartflow.bayern/#website" },
+        "about": { "@id": "https://smartflow.bayern/#organization" },
+        "inLanguage": "en",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-subtitle", ".about-text"]
+        }
+      }
+    ]
   }
   </script>
 
@@ -112,7 +147,7 @@
         "name": "Process Optimization",
         "provider": { "@id": "https://smartflow.bayern/#organization" },
         "areaServed": { "@type": "State", "name": "Bavaria" },
-        "description": "We take your workflows apart and put them back together so nothing gets stuck: clear responsibilities, no duplicate work, measurable throughput times. You win back time without hiring.",
+        "description": "I take your workflows apart and put them back together so nothing gets stuck: clear responsibilities, no duplicate work, measurable throughput times. You win back time without hiring.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -127,7 +162,7 @@
         "name": "Digitization",
         "provider": { "@id": "https://smartflow.bayern/#organization" },
         "areaServed": { "@type": "State", "name": "Bavaria" },
-        "description": "We replace paper filing, Excel lists and isolated tools with systems that work together: from software selection and data migration to training your team. Set up securely and built to still hold up in five years.",
+        "description": "I replace paper filing, Excel lists and isolated tools with systems that work together: from software selection and data migration to training your team. Set up securely and built to still hold up in five years.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -173,7 +208,7 @@
         "name": "What company sizes is SmartFlow suitable for?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We specialize in exactly these small and mid-sized businesses, from a tradesperson with 3 employees to an established regional company. Our solutions are tailored precisely to this size and stay affordable."
+          "text": "I specialize in exactly these small and mid-sized businesses, from a tradesperson with 3 employees to an established regional company. My solutions are tailored precisely to this size and stay affordable."
         }
       },
       {
@@ -181,7 +216,7 @@
         "name": "What does a collaboration with SmartFlow cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The initial consultation is free and non-binding. In 30 minutes, we can estimate the effort involved and the realistic ROI you can expect."
+          "text": "The initial consultation is free and non-binding. What a collaboration costs afterwards depends on the scope: how many processes are involved, whether existing software is connected or new software introduced, and how much training your team needs. After the analysis you receive a fixed-price quote, so you know what to expect before implementation starts. Smaller automations are accordingly less expensive than full digitization projects."
         }
       },
       {
@@ -189,7 +224,7 @@
         "name": "Do we need to switch our existing software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not necessarily. We first analyze whether your existing tools can be used more effectively. Often, better configuration or integrations can achieve major improvements without introducing entirely new software."
+          "text": "Not necessarily. I first analyze whether your existing tools can be used more effectively. Often, better configuration or integrations can achieve major improvements without introducing entirely new software."
         }
       },
       {
@@ -205,7 +240,7 @@
         "name": "I don't have time for a project like this. Is it still worth it?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Especially then. We plan the rollout so your day-to-day business keeps running: we handle preparation and implementation, you make the decisions. Your time investment is predictable and manageable, and the time sinks slowing you down today are gone afterwards."
+          "text": "Especially then. I plan the rollout so your day-to-day business keeps running: I handle preparation and implementation, you make the decisions. Your time investment is predictable and manageable, and the time sinks slowing you down today are gone afterwards."
         }
       },
       {
@@ -213,7 +248,7 @@
         "name": "We already have a website and a few tools. Do we still need this?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A website and individual tools are the start. What matters is whether they work together: if website inquiries are copied into Excel by hand or appointments are still arranged over the phone, you're giving away most of the benefit. Those connections are exactly what we build."
+          "text": "A website and individual tools are the start. What matters is whether they work together: if website inquiries are copied into Excel by hand or appointments are still arranged over the phone, you're giving away most of the benefit. Those connections are exactly what I build."
         }
       }
     ]
@@ -282,12 +317,14 @@
             Less admin. More time for your <span class="accent">core business.</span>
           </h1>
           <p class="hero-subtitle">
-            We digitalize and automate the workflows of trade businesses, medical
-            practices and property managers in Bavaria: from first inquiry to final invoice.
+            SmartFlow is a process optimization, digitization and automation consultancy
+            based in Regensburg, Germany. I digitalize and automate the workflows of trade
+            businesses, medical practices and property managers in Bavaria: from first
+            inquiry to final invoice.
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn-cta">Book a consultation <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-            <a href="#process" class="btn-secondary">How we work</a>
+            <a href="#process" class="btn-secondary">How I work</a>
           </div>
         </div>
       </div>
@@ -367,16 +404,16 @@
     <section class="services-section" id="services">
       <div class="services-layout">
         <div class="services-rail fade-in">
-          <p class="section-label">What we offer</p>
-          <h2 class="section-title">Our core services</h2>
-          <p class="services-intro">Three building blocks that work on their own or together. We always start where you lose the most time.</p>
+          <p class="section-label">Services</p>
+          <h2 class="section-title">What I do for you</h2>
+          <p class="services-intro">Three building blocks that work on their own or together. I always start where you lose the most time.</p>
         </div>
 
         <div class="services-list stagger">
           <article class="service fade-in">
             <h3 class="service-title">Process Optimization</h3>
             <p class="service-description">
-              We take your workflows apart and put them back together so nothing gets stuck: clear responsibilities, no duplicate work, measurable throughput times. You win back time without hiring.
+              I take your workflows apart and put them back together so nothing gets stuck: clear responsibilities, no duplicate work, measurable throughput times. You win back time without hiring.
             </p>
             <ul class="service-scope" role="list" aria-label="Scope">
               <li>Process Analysis &amp; Mapping</li>
@@ -389,7 +426,7 @@
           <article class="service fade-in">
             <h3 class="service-title">Digitization</h3>
             <p class="service-description">
-              We replace paper filing, Excel lists and isolated tools with systems that work together: from software selection and data migration to training your team. Set up securely and built to still hold up in five years.
+              I replace paper filing, Excel lists and isolated tools with systems that work together: from software selection and data migration to training your team. Set up securely and built to still hold up in five years.
             </p>
             <ul class="service-scope" role="list" aria-label="Scope">
               <li>Software Selection &amp; Implementation</li>
@@ -436,7 +473,7 @@
         <div class="bento stagger">
           <div class="bento-cell bento-anchor fade-in">
             <h3 class="bento-title">Trade businesses</h3>
-            <p class="bento-text">Quotes get written after hours, inquiries wait on the answering machine, site photos live in a private chat. We turn inquiries, orders and documentation into one continuous workflow, from first contact to invoice.</p>
+            <p class="bento-text">Quotes get written after hours, inquiries wait on the answering machine, site photos live in a private chat. I turn inquiries, orders and documentation into one continuous workflow, from first contact to invoice.</p>
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Practices &amp; local services</h3>
@@ -444,7 +481,7 @@
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Property managers</h3>
-            <p class="bento-text">Damage reports arrive by phone, email and letter, and every single one is logged by hand. We digitalize reporting and approval workflows so every case moves through traceably.</p>
+            <p class="bento-text">Damage reports arrive by phone, email and letter, and every single one is logged by hand. I digitalize reporting and approval workflows so every case moves through traceably.</p>
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Freelancers &amp; agencies</h3>
@@ -452,7 +489,7 @@
           </div>
           <div class="bento-cell bento-tint fade-in">
             <h3 class="bento-title">Online shops</h3>
-            <p class="bento-text">Order-status questions, returns, stock reconciliation: much of it is still manual. We connect shop, shipping and accounting so standard cases handle themselves.</p>
+            <p class="bento-text">Order-status questions, returns, stock reconciliation: much of it is still manual. I connect shop, shipping and accounting so standard cases handle themselves.</p>
           </div>
         </div>
       </div>
@@ -463,13 +500,13 @@
          ================================================ -->
     <section class="process-section" id="process">
       <div class="container">
-        <h2 class="section-title fade-in">How we work</h2>
+        <h2 class="section-title fade-in">How I work</h2>
 
         <ol class="timeline" id="timeline">
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:0" aria-hidden="true"></span>
             <h3 class="timeline-title">Analysis</h3>
-            <p class="timeline-text">It starts with the free consultation. Then we look at your workflows in detail, on site or remote, and find where time and orders are being lost.</p>
+            <p class="timeline-text">It starts with the free consultation. Then I look at your workflows in detail, on site or remote, and find where time and orders are being lost.</p>
           </li>
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:1" aria-hidden="true"></span>
@@ -479,12 +516,12 @@
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:2" aria-hidden="true"></span>
             <h3 class="timeline-title">Implementation</h3>
-            <p class="timeline-text">We put the solutions in place step by step with you and your team. You're part of every decision, we take the time to get your employees comfortable, and at go-live we're right there at your side.</p>
+            <p class="timeline-text">I put the solutions in place step by step with you and your team. You're part of every decision, I take the time to get your employees comfortable, and at go-live I'm right there at your side.</p>
           </li>
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:3" aria-hidden="true"></span>
             <h3 class="timeline-title">Optimization</h3>
-            <p class="timeline-text">After the rollout we measure what the change actually delivers, fine-tune, and only step back once everything runs smoothly.</p>
+            <p class="timeline-text">After the rollout I measure what the change actually delivers, fine-tune, and only step back once everything runs smoothly.</p>
           </li>
         </ol>
       </div>
@@ -504,13 +541,21 @@
           <p class="section-label">The person behind SmartFlow</p>
           <h2 class="section-title">Leon Heinrich</h2>
           <p class="about-text">
-            <!-- TODO: replace with real bio. -->
-            I help businesses in Bavaria set up their admin so it runs on the side.
-            Plain talk instead of consultant-speak, and no software you don't need.
+            My path to SmartFlow began in healthcare: after training as a medical
+            assistant in the general practice of Dr. Gall, I worked in a children's
+            hospital, a pediatric practice, and child and adolescent psychiatry.
+            There I saw every day how much time is lost to cumbersome workflows,
+            and how much better things run when processes are well designed. That
+            is exactly where SmartFlow comes from. Today I help mid-sized companies
+            in Bavaria move to efficient, digital processes: plain talk instead of
+            consultant-speak. And never pushing software on you that you don't
+            actually need.
           </p>
           <ul class="about-credentials" role="list">
             <li>Based in Regensburg, personally available</li>
-            <li>Experience across property management, healthcare, and trades</li>
+            <li>Trained medical assistant: practice and hospital workflows from first-hand experience</li>
+            <li>Focus areas: process optimization, automation, databases</li>
+            <li>Most recently: built an AI knowledge system (RAG) for a mid-sized company with 40 employees</li>
             <li>One dedicated contact from the first conversation to go-live</li>
           </ul>
         </div>
@@ -541,7 +586,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>We specialize in exactly these small and mid-sized businesses, from a tradesperson with 3 employees to an established regional company. Our solutions are tailored precisely to this size and stay affordable.</p>
+              <p>I specialize in exactly these small and mid-sized businesses, from a tradesperson with 3 employees to an established regional company. My solutions are tailored precisely to this size and stay affordable.</p>
             </div>
           </details>
 
@@ -551,7 +596,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>The initial consultation is free and non-binding. In 30 minutes, we can estimate the effort involved and the realistic ROI you can expect.</p>
+              <p>The initial consultation is free and non-binding. What a collaboration costs afterwards depends on the scope: how many processes are involved, whether existing software is connected or new software introduced, and how much training your team needs. After the analysis you receive a fixed-price quote, so you know what to expect before implementation starts. Smaller automations are accordingly less expensive than full digitization projects.</p>
             </div>
           </details>
 
@@ -561,7 +606,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Not necessarily. We first analyze whether your existing tools can be used more effectively. Often, better configuration or integrations can achieve major improvements without introducing entirely new software.</p>
+              <p>Not necessarily. I first analyze whether your existing tools can be used more effectively. Often, better configuration or integrations can achieve major improvements without introducing entirely new software.</p>
             </div>
           </details>
 
@@ -581,7 +626,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Especially then. We plan the rollout so your day-to-day business keeps running: we handle preparation and implementation, you make the decisions. Your time investment is predictable and manageable, and the time sinks slowing you down today are gone afterwards.</p>
+              <p>Especially then. I plan the rollout so your day-to-day business keeps running: I handle preparation and implementation, you make the decisions. Your time investment is predictable and manageable, and the time sinks slowing you down today are gone afterwards.</p>
             </div>
           </details>
 
@@ -591,7 +636,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>A website and individual tools are the start. What matters is whether they work together: if website inquiries are copied into Excel by hand or appointments are still arranged over the phone, you're giving away most of the benefit. Those connections are exactly what we build.</p>
+              <p>A website and individual tools are the start. What matters is whether they work together: if website inquiries are copied into Excel by hand or appointments are still arranged over the phone, you're giving away most of the benefit. Those connections are exactly what I build.</p>
             </div>
           </details>
         </div>
@@ -629,7 +674,7 @@
             <div class="cal-placeholder-content">
               <h3 class="cal-placeholder-title">Pick a time online</h3>
               <p class="cal-placeholder-text">
-                We use <strong>Cal.com</strong> for online appointment booking. Loading the
+                I use <strong>Cal.com</strong> for online appointment booking. Loading the
                 booking widget may set cookies and transfer personal data to the USA. See our
                 <a href="privacy-policy.html">Privacy Policy</a> for details.
               </p>

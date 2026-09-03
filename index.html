@@ -43,60 +43,95 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.min.css" />
 
-  <!-- Structured Data: LocalBusiness -->
+  <!-- Structured Data: LocalBusiness, Person, WebSite, WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://smartflow.bayern/#organization",
-    "name": "SmartFlow",
-    "alternateName": "SmartFlow Prozessoptimierung",
-    "founder": {
-      "@type": "Person",
-      "name": "Leon Heinrich",
-      "jobTitle": "Inhaber"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Arnulfsplatz 2",
-      "postalCode": "93047",
-      "addressLocality": "Regensburg",
-      "addressRegion": "BY",
-      "addressCountry": "DE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 49.0169,
-      "longitude": 12.0952
-    },
-    "email": "info@smartflow.bayern",
-    "telephone": "+49 173 4487550",
-    "url": "https://smartflow.bayern/",
-    "image": "https://smartflow.bayern/assets/og-image.jpg",
-    "logo": "https://smartflow.bayern/favicon.svg",
-    "priceRange": "€€",
-    "description": "Prozessoptimierung, Digitalisierung und Automatisierung für KMU in Regensburg und Bayern.",
-    "areaServed": [
-      { "@type": "City", "name": "Regensburg" },
-      { "@type": "City", "name": "Landshut" },
-      { "@type": "City", "name": "Straubing" },
-      { "@type": "City", "name": "Passau" },
-      { "@type": "State", "name": "Bayern" }
-    ],
-    "knowsAbout": [
-      "Prozessoptimierung",
-      "Digitalisierung",
-      "Workflow-Automatisierung",
-      "KI-Integration für KMU",
-      "Cloud-Migration",
-      "Software-Auswahl"
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://smartflow.bayern/#organization",
+        "name": "SmartFlow",
+        "alternateName": "SmartFlow Regensburg",
+        "founder": { "@id": "https://smartflow.bayern/#leon-heinrich" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Arnulfsplatz 2",
+          "postalCode": "93047",
+          "addressLocality": "Regensburg",
+          "addressRegion": "BY",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 49.0169,
+          "longitude": 12.0952
+        },
+        "email": "info@smartflow.bayern",
+        "telephone": "+49 173 4487550",
+        "url": "https://smartflow.bayern/",
+        "image": "https://smartflow.bayern/assets/og-image.jpg",
+        "logo": "https://smartflow.bayern/assets/logo.png",
+        "priceRange": "€€",
+        "description": "Prozessoptimierung, Digitalisierung und Automatisierung für KMU in Regensburg und Bayern.",
+        "areaServed": [
+          { "@type": "City", "name": "Regensburg" },
+          { "@type": "City", "name": "Landshut" },
+          { "@type": "City", "name": "Straubing" },
+          { "@type": "City", "name": "Passau" },
+          { "@type": "State", "name": "Bayern" }
+        ],
+        "knowsAbout": [
+          "Prozessoptimierung",
+          "Digitalisierung",
+          "Workflow-Automatisierung",
+          "KI-Integration für KMU",
+          "Cloud-Migration",
+          "Software-Auswahl"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://smartflow.bayern/#leon-heinrich",
+        "name": "Leon Heinrich",
+        "jobTitle": "Inhaber",
+        "worksFor": { "@id": "https://smartflow.bayern/#organization" },
+        "description": "Gelernter Medizinischer Fachangestellter mit Stationen in Allgemeinarztpraxis, Kinderkrankenhaus, Kinderarztpraxis und Kinder- und Jugendpsychiatrie. Heute optimiert, digitalisiert und automatisiert er als Inhaber von SmartFlow die Prozesse von KMU in Bayern.",
+        "knowsAbout": [
+          "Prozessoptimierung",
+          "Workflow-Automatisierung",
+          "Datenbanken",
+          "KI-Integration für KMU"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://smartflow.bayern/#website",
+        "url": "https://smartflow.bayern/",
+        "name": "SmartFlow",
+        "publisher": { "@id": "https://smartflow.bayern/#organization" },
+        "inLanguage": ["de", "en"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://smartflow.bayern/#webpage",
+        "url": "https://smartflow.bayern/",
+        "name": "SmartFlow Regensburg | Prozessoptimierung & Digitalisierung",
+        "isPartOf": { "@id": "https://smartflow.bayern/#website" },
+        "about": { "@id": "https://smartflow.bayern/#organization" },
+        "inLanguage": "de",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-subtitle", ".about-text"]
+        }
+      }
+    ]
   }
   </script>
 
@@ -112,7 +147,7 @@
         "name": "Prozessoptimierung",
         "provider": { "@id": "https://smartflow.bayern/#organization" },
         "areaServed": { "@type": "State", "name": "Bayern" },
-        "description": "Wir nehmen Ihre Abläufe auseinander und setzen sie so wieder zusammen, dass nichts mehr hakt: klare Zuständigkeiten, keine Doppelarbeit, messbare Durchlaufzeiten. Sie gewinnen Zeit zurück, ohne mehr Personal.",
+        "description": "Ich nehme Ihre Abläufe auseinander und setze sie so wieder zusammen, dass nichts mehr hakt: klare Zuständigkeiten, keine Doppelarbeit, messbare Durchlaufzeiten. Sie gewinnen Zeit zurück, ohne mehr Personal.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -127,7 +162,7 @@
         "name": "Digitalisierung",
         "provider": { "@id": "https://smartflow.bayern/#organization" },
         "areaServed": { "@type": "State", "name": "Bayern" },
-        "description": "Papierablage, Excel-Listen und Insellösungen ersetzen wir durch Werkzeuge, die zusammenspielen: von der Software-Auswahl über die Datenübernahme bis zur Einarbeitung Ihres Teams. Sicher aufgesetzt und so gebaut, dass es in fünf Jahren noch trägt.",
+        "description": "Papierablage, Excel-Listen und Insellösungen ersetze ich durch Werkzeuge, die zusammenspielen: von der Software-Auswahl über die Datenübernahme bis zur Einarbeitung Ihres Teams. Sicher aufgesetzt und so gebaut, dass es in fünf Jahren noch trägt.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -173,7 +208,7 @@
         "name": "Für welche Unternehmensgrößen ist SmartFlow geeignet?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wir sind genau auf mittelständische und kleinere Betriebe spezialisiert, vom Handwerker mit 3 Mitarbeitern bis zum etablierten regionalen Unternehmen. Unsere Lösungen sind passgenau für diese Größe gemacht und bleiben dabei bezahlbar."
+          "text": "Ich bin genau auf mittelständische und kleinere Betriebe spezialisiert, vom Handwerker mit 3 Mitarbeitern bis zum etablierten regionalen Unternehmen. Meine Lösungen sind passgenau für diese Größe gemacht und bleiben dabei bezahlbar."
         }
       },
       {
@@ -181,7 +216,7 @@
         "name": "Was kostet eine Zusammenarbeit mit SmartFlow?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Das Erstgespräch ist kostenlos und unverbindlich. In 30 Minuten können wir einschätzen, welchen Aufwand Sie erwarten und welchen ROI Sie realistisch erzielen können."
+          "text": "Das Erstgespräch ist kostenlos und unverbindlich. Was eine Zusammenarbeit danach kostet, hängt vom Umfang ab: wie viele Prozesse betroffen sind, ob bestehende Software angebunden oder neue eingeführt wird und wie viel Einarbeitung Ihr Team braucht. Nach der Analyse erhalten Sie ein Festpreisangebot. Sie wissen also vor der Umsetzung, was auf Sie zukommt. Kleinere Automatisierungen sind entsprechend günstiger als komplette Digitalisierungsprojekte."
         }
       },
       {
@@ -189,7 +224,7 @@
         "name": "Müssen wir bestehende Software wechseln?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nicht unbedingt. Wir analysieren zunächst, ob Ihre bestehenden Tools optimal genutzt werden können. Oft lassen sich durch bessere Konfiguration oder Schnittstellen große Verbesserungen erzielen, ohne komplett neue Software einzuführen."
+          "text": "Nicht unbedingt. Ich analysiere zunächst, ob Ihre bestehenden Tools optimal genutzt werden können. Oft lassen sich durch bessere Konfiguration oder Schnittstellen große Verbesserungen erzielen, ohne komplett neue Software einzuführen."
         }
       },
       {
@@ -197,7 +232,7 @@
         "name": "Wie läuft ein Erstgespräch ab?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ganz entspannt und ohne Verkaufsdruck. In rund 30 Minuten (telefonisch oder per Video) erzählen Sie mir, wo bei Ihnen gerade der Schuh drückt und was Sie erreichen möchten. Ich höre zu, stelle ein paar gezielte Fragen und sage Ihnen dann ehrlich, ob und wie ich Ihnen weiterhelfen kann. Sie gehen mit einer klaren Einschätzung aus dem Gespräch, ganz gleich, ob wir danach zusammenarbeiten oder nicht."
+          "text": "Ganz entspannt und ohne Verkaufsdruck. In rund 30 Minuten (telefonisch oder per Video) erzählen Sie mir einfach, wo bei Ihnen gerade der Schuh drückt und was Sie erreichen möchten. Ich höre zu, stelle ein paar gezielte Fragen und sage Ihnen dann ehrlich, ob und wie ich Ihnen weiterhelfen kann. Sie gehen mit einer klaren Einschätzung aus dem Gespräch, ganz gleich, ob wir danach zusammenarbeiten oder nicht."
         }
       },
       {
@@ -205,7 +240,7 @@
         "name": "Ich habe keine Zeit für so ein Projekt. Lohnt sich das trotzdem?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gerade dann. Wir planen die Einführung so, dass Ihr Tagesgeschäft weiterläuft: Vorbereitung und Umsetzung übernehmen wir, Sie treffen die Entscheidungen. Ihr Zeiteinsatz ist planbar und überschaubar, und die Zeitfresser, die Sie heute bremsen, sind danach weg."
+          "text": "Gerade dann. Ich plane die Einführung so, dass Ihr Tagesgeschäft weiterläuft: Vorbereitung und Umsetzung übernehme ich, Sie treffen die Entscheidungen. Ihr Zeiteinsatz ist planbar und überschaubar, und die Zeitfresser, die Sie heute bremsen, sind danach weg."
         }
       },
       {
@@ -213,7 +248,7 @@
         "name": "Wir haben schon eine Website und einzelne Tools. Brauchen wir das trotzdem?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Eine Website und einzelne Tools sind der Anfang. Entscheidend ist, ob sie zusammenspielen: Wenn Anfragen von der Website von Hand in Excel übertragen werden oder Termine weiter übers Telefon laufen, verschenken Sie den größten Teil des Nutzens. Genau diese Verbindungen bauen wir."
+          "text": "Eine Website und einzelne Tools sind der Anfang. Entscheidend ist, ob sie zusammenspielen: Wenn Anfragen von der Website von Hand in Excel übertragen werden oder Termine weiter übers Telefon laufen, verschenken Sie den größten Teil des Nutzens. Genau diese Verbindungen baue ich."
         }
       }
     ]
@@ -282,12 +317,14 @@
             Weniger Verwaltung. Mehr Zeit für Ihr <span class="accent">Kerngeschäft.</span>
           </h1>
           <p class="hero-subtitle">
-            Wir digitalisieren und automatisieren die Abläufe von Handwerksbetrieben,
-            Praxen und Hausverwaltungen in Bayern: von der Anfrage bis zur Rechnung.
+            SmartFlow ist ein Dienstleister für Prozessoptimierung, Digitalisierung und
+            Automatisierung aus Regensburg. Ich digitalisiere und automatisiere die Abläufe
+            von Handwerksbetrieben, Praxen und Hausverwaltungen in Bayern: von der Anfrage
+            bis zur Rechnung.
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn-cta">Erstgespräch buchen <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-            <a href="#process" class="btn-secondary">So arbeiten wir</a>
+            <a href="#process" class="btn-secondary">So arbeite ich</a>
           </div>
         </div>
       </div>
@@ -368,15 +405,15 @@
       <div class="services-layout">
         <div class="services-rail fade-in">
           <p class="section-label">Leistungen</p>
-          <h2 class="section-title">Was wir für Sie tun</h2>
-          <p class="services-intro">Drei Bausteine, die einzeln oder zusammen funktionieren. Wir beginnen immer dort, wo bei Ihnen am meisten Zeit verloren geht.</p>
+          <h2 class="section-title">Was ich für Sie tue</h2>
+          <p class="services-intro">Drei Bausteine, die einzeln oder zusammen funktionieren. Ich beginne immer dort, wo bei Ihnen am meisten Zeit verloren geht.</p>
         </div>
 
         <div class="services-list stagger">
           <article class="service fade-in">
             <h3 class="service-title">Prozessoptimierung</h3>
             <p class="service-description">
-              Wir nehmen Ihre Abläufe auseinander und setzen sie so wieder zusammen, dass nichts mehr hakt: klare Zuständigkeiten, keine Doppelarbeit, messbare Durchlaufzeiten. Sie gewinnen Zeit zurück, ohne mehr Personal.
+              Ich nehme Ihre Abläufe auseinander und setze sie so wieder zusammen, dass nichts mehr hakt: klare Zuständigkeiten, keine Doppelarbeit, messbare Durchlaufzeiten. Sie gewinnen Zeit zurück, ohne mehr Personal.
             </p>
             <ul class="service-scope" role="list" aria-label="Umfang">
               <li>Ist-Analyse</li>
@@ -389,7 +426,7 @@
           <article class="service fade-in">
             <h3 class="service-title">Digitalisierung</h3>
             <p class="service-description">
-              Papierablage, Excel-Listen und Insellösungen ersetzen wir durch Werkzeuge, die zusammenspielen: von der Software-Auswahl über die Datenübernahme bis zur Einarbeitung Ihres Teams. Sicher aufgesetzt und so gebaut, dass es in fünf Jahren noch trägt.
+              Papierablage, Excel-Listen und Insellösungen ersetze ich durch Werkzeuge, die zusammenspielen: von der Software-Auswahl über die Datenübernahme bis zur Einarbeitung Ihres Teams. Sicher aufgesetzt und so gebaut, dass es in fünf Jahren noch trägt.
             </p>
             <ul class="service-scope" role="list" aria-label="Umfang">
               <li>Software-Auswahl</li>
@@ -436,7 +473,7 @@
         <div class="bento stagger">
           <div class="bento-cell bento-anchor fade-in">
             <h3 class="bento-title">Handwerksbetriebe</h3>
-            <p class="bento-text">Angebote entstehen nach Feierabend, Anfragen warten im Anrufbeantworter, Baustellenfotos liegen im privaten Chat. Wir bringen Anfragen, Aufträge und Dokumentation in einen durchgehenden Ablauf, vom ersten Kontakt bis zur Rechnung.</p>
+            <p class="bento-text">Angebote entstehen nach Feierabend, Anfragen warten im Anrufbeantworter, Baustellenfotos liegen im privaten Chat. Ich bringe Anfragen, Aufträge und Dokumentation in einen durchgehenden Ablauf, vom ersten Kontakt bis zur Rechnung.</p>
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Praxen &amp; lokale Dienstleister</h3>
@@ -444,7 +481,7 @@
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Hausverwaltungen</h3>
-            <p class="bento-text">Schadensmeldungen kommen per Anruf, E-Mail und Brief, und jede muss von Hand erfasst werden. Wir digitalisieren Meldewege und Freigaben, damit jeder Vorgang nachvollziehbar durchläuft.</p>
+            <p class="bento-text">Schadensmeldungen kommen per Anruf, E-Mail und Brief, und jede muss von Hand erfasst werden. Ich digitalisiere Meldewege und Freigaben, damit jeder Vorgang nachvollziehbar durchläuft.</p>
           </div>
           <div class="bento-cell fade-in">
             <h3 class="bento-title">Selbstständige &amp; Agenturen</h3>
@@ -452,7 +489,7 @@
           </div>
           <div class="bento-cell bento-tint fade-in">
             <h3 class="bento-title">Onlineshops</h3>
-            <p class="bento-text">Bestellstatus-Anfragen, Retouren, Lagerabgleich: Vieles läuft noch per Hand. Wir verbinden Shop, Versand und Buchhaltung, damit Standardfälle sich selbst erledigen.</p>
+            <p class="bento-text">Bestellstatus-Anfragen, Retouren, Lagerabgleich: Vieles läuft noch per Hand. Ich verbinde Shop, Versand und Buchhaltung, damit Standardfälle sich selbst erledigen.</p>
           </div>
         </div>
       </div>
@@ -463,13 +500,13 @@
          ================================================ -->
     <section class="process-section" id="process">
       <div class="container">
-        <h2 class="section-title fade-in">So arbeiten wir</h2>
+        <h2 class="section-title fade-in">So arbeite ich</h2>
 
         <ol class="timeline" id="timeline">
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:0" aria-hidden="true"></span>
             <h3 class="timeline-title">Analyse</h3>
-            <p class="timeline-text">Los geht es mit dem kostenlosen Erstgespräch. Danach schauen wir uns Ihre Abläufe im Detail an, vor Ort oder remote, und finden die Stellen, an denen Zeit und Aufträge verloren gehen.</p>
+            <p class="timeline-text">Los geht es mit dem kostenlosen Erstgespräch. Danach schaue ich mir Ihre Abläufe im Detail an, vor Ort oder remote, und finde die Stellen, an denen Zeit und Aufträge verloren gehen.</p>
           </li>
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:1" aria-hidden="true"></span>
@@ -479,12 +516,12 @@
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:2" aria-hidden="true"></span>
             <h3 class="timeline-title">Umsetzung</h3>
-            <p class="timeline-text">Wir setzen die Lösungen Schritt für Schritt mit Ihnen und Ihrem Team um. Sie sind bei jeder Entscheidung dabei, Ihre Mitarbeiter arbeiten wir in Ruhe ein, und beim Go-Live stehen wir an Ihrer Seite.</p>
+            <p class="timeline-text">Ich setze die Lösungen Schritt für Schritt mit Ihnen und Ihrem Team um. Sie sind bei jeder Entscheidung dabei, Ihre Mitarbeiter arbeite ich in Ruhe ein, und beim Go-Live stehe ich an Ihrer Seite.</p>
           </li>
           <li class="timeline-step fade-in">
             <span class="timeline-node" style="--i:3" aria-hidden="true"></span>
             <h3 class="timeline-title">Optimierung</h3>
-            <p class="timeline-text">Nach der Einführung messen wir, was die Umstellung tatsächlich bringt, justieren nach und lassen Sie erst allein, wenn alles rundläuft.</p>
+            <p class="timeline-text">Nach der Einführung messe ich, was die Umstellung tatsächlich bringt, justiere nach und lasse Sie erst allein, wenn alles rundläuft.</p>
           </li>
         </ol>
       </div>
@@ -504,13 +541,21 @@
           <p class="section-label">Wer hinter SmartFlow steckt</p>
           <h2 class="section-title">Leon Heinrich</h2>
           <p class="about-text">
-            <!-- TODO: Echten Werdegang einsetzen. Vorlage als Startpunkt. -->
-            Ich helfe Betrieben in Bayern, ihre Verwaltung so aufzusetzen, dass sie nebenher läuft.
-            Klartext statt Berater-Sprech, und keine Software, die Sie nicht brauchen.
+            Mein Weg zu SmartFlow begann im Gesundheitswesen: Nach der Ausbildung zum
+            Medizinischen Fachangestellten in der Allgemeinarztpraxis Dr. Gall habe ich
+            im Kinderkrankenhaus, in einer Kinderarztpraxis und in der Kinder- und
+            Jugendpsychiatrie gearbeitet. Dort habe ich täglich gesehen, wie viel Zeit
+            in umständlichen Abläufen verloren geht, und wie viel besser es läuft,
+            wenn Prozesse durchdacht sind. Genau daraus ist SmartFlow entstanden.
+            Heute verhelfe ich Mittelständlern in Bayern zu effizienten, digitalen
+            Prozessen: Klartext statt Berater-Sprech. Und garantiert ohne Ihnen
+            Software aufzudrängen, die Sie gar nicht brauchen.
           </p>
           <ul class="about-credentials" role="list">
             <li>Sitz in Regensburg, persönlich erreichbar</li>
-            <li>Erfahrung in Hausverwaltung, Gesundheitswesen und Handwerk</li>
+            <li>Gelernter Medizinischer Fachangestellter: Praxis- und Klinikabläufe aus eigener Erfahrung</li>
+            <li>Schwerpunkte: Prozessoptimierung, Automatisierung, Datenbanken</li>
+            <li>Zuletzt: KI-Wissenssystem (RAG) für einen Mittelständler mit 40 Mitarbeitern aufgebaut</li>
             <li>Ein fester Ansprechpartner vom ersten Gespräch bis zum Go-Live</li>
           </ul>
         </div>
@@ -541,7 +586,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Wir sind genau auf mittelständische und kleinere Betriebe spezialisiert, vom Handwerker mit 3 Mitarbeitern bis zum etablierten regionalen Unternehmen. Unsere Lösungen sind passgenau für diese Größe gemacht und bleiben dabei bezahlbar.</p>
+              <p>Ich bin genau auf mittelständische und kleinere Betriebe spezialisiert, vom Handwerker mit 3 Mitarbeitern bis zum etablierten regionalen Unternehmen. Meine Lösungen sind passgenau für diese Größe gemacht und bleiben dabei bezahlbar.</p>
             </div>
           </details>
 
@@ -551,7 +596,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Das Erstgespräch ist kostenlos und unverbindlich. In 30 Minuten können wir einschätzen, welchen Aufwand Sie erwarten und welchen ROI Sie realistisch erzielen können.</p>
+              <p>Das Erstgespräch ist kostenlos und unverbindlich. Was eine Zusammenarbeit danach kostet, hängt vom Umfang ab: wie viele Prozesse betroffen sind, ob bestehende Software angebunden oder neue eingeführt wird und wie viel Einarbeitung Ihr Team braucht. Nach der Analyse erhalten Sie ein Festpreisangebot. Sie wissen also vor der Umsetzung, was auf Sie zukommt. Kleinere Automatisierungen sind entsprechend günstiger als komplette Digitalisierungsprojekte.</p>
             </div>
           </details>
 
@@ -561,7 +606,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Nicht unbedingt. Wir analysieren zunächst, ob Ihre bestehenden Tools optimal genutzt werden können. Oft lassen sich durch bessere Konfiguration oder Schnittstellen große Verbesserungen erzielen, ohne komplett neue Software einzuführen.</p>
+              <p>Nicht unbedingt. Ich analysiere zunächst, ob Ihre bestehenden Tools optimal genutzt werden können. Oft lassen sich durch bessere Konfiguration oder Schnittstellen große Verbesserungen erzielen, ohne komplett neue Software einzuführen.</p>
             </div>
           </details>
 
@@ -571,7 +616,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Ganz entspannt und ohne Verkaufsdruck. In rund 30 Minuten (telefonisch oder per Video) erzählen Sie mir, wo bei Ihnen gerade der Schuh drückt und was Sie erreichen möchten. Ich höre zu, stelle ein paar gezielte Fragen und sage Ihnen dann ehrlich, ob und wie ich Ihnen weiterhelfen kann. Sie gehen mit einer klaren Einschätzung aus dem Gespräch, ganz gleich, ob wir danach zusammenarbeiten oder nicht.</p>
+              <p>Ganz entspannt und ohne Verkaufsdruck. In rund 30 Minuten (telefonisch oder per Video) erzählen Sie mir einfach, wo bei Ihnen gerade der Schuh drückt und was Sie erreichen möchten. Ich höre zu, stelle ein paar gezielte Fragen und sage Ihnen dann ehrlich, ob und wie ich Ihnen weiterhelfen kann. Sie gehen mit einer klaren Einschätzung aus dem Gespräch, ganz gleich, ob wir danach zusammenarbeiten oder nicht.</p>
             </div>
           </details>
 
@@ -581,7 +626,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Gerade dann. Wir planen die Einführung so, dass Ihr Tagesgeschäft weiterläuft: Vorbereitung und Umsetzung übernehmen wir, Sie treffen die Entscheidungen. Ihr Zeiteinsatz ist planbar und überschaubar, und die Zeitfresser, die Sie heute bremsen, sind danach weg.</p>
+              <p>Gerade dann. Ich plane die Einführung so, dass Ihr Tagesgeschäft weiterläuft: Vorbereitung und Umsetzung übernehme ich, Sie treffen die Entscheidungen. Ihr Zeiteinsatz ist planbar und überschaubar, und die Zeitfresser, die Sie heute bremsen, sind danach weg.</p>
             </div>
           </details>
 
@@ -591,7 +636,7 @@
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </summary>
             <div class="faq-answer">
-              <p>Eine Website und einzelne Tools sind der Anfang. Entscheidend ist, ob sie zusammenspielen: Wenn Anfragen von der Website von Hand in Excel übertragen werden oder Termine weiter übers Telefon laufen, verschenken Sie den größten Teil des Nutzens. Genau diese Verbindungen bauen wir.</p>
+              <p>Eine Website und einzelne Tools sind der Anfang. Entscheidend ist, ob sie zusammenspielen: Wenn Anfragen von der Website von Hand in Excel übertragen werden oder Termine weiter übers Telefon laufen, verschenken Sie den größten Teil des Nutzens. Genau diese Verbindungen baue ich.</p>
             </div>
           </details>
         </div>
@@ -629,7 +674,7 @@
             <div class="cal-placeholder-content">
               <h3 class="cal-placeholder-title">Termin online auswählen</h3>
               <p class="cal-placeholder-text">
-                Wir nutzen <strong>Cal.com</strong> für die Online-Terminbuchung. Mit dem
+                Ich nutze <strong>Cal.com</strong> für die Online-Terminbuchung. Mit dem
                 Klick wird der Buchungskalender geladen. Dabei können Cookies gesetzt und
                 personenbezogene Daten in die USA übermittelt werden. Details in der
                 <a href="datenschutz.html">Datenschutzerklärung</a>.
